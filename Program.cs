@@ -24,10 +24,10 @@ class XMLVAlidator
             settings.ValidationEventHandler += new ValidationEventHandler((object? sender, ValidationEventArgs validationArgs) =>
             {
                 if (validationArgs.Severity == XmlSeverityType.Warning) {
-                    Console.WriteLine($"WARNING: {validationArgs.Message}");
+                    Console.WriteLine($"WARNING {validationArgs.Exception.LineNumber}, {validationArgs.Exception.LinePosition}: {validationArgs.Message}");
                 }
                 else
-                    Console.WriteLine($"ERROR: {validationArgs.Message}");
+                    Console.WriteLine($"ERROR {validationArgs.Exception.LineNumber}, {validationArgs.Exception.LinePosition}: {validationArgs.Message}");
             });
 
             Console.WriteLine("XSD schemas:");

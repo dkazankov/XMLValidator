@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Text;
+using System.Xml;
 using System.Xml.Schema;
 
 class XMLVAlidator
@@ -11,6 +12,9 @@ class XMLVAlidator
             Console.WriteLine("    XMLValidator.exe <XML name> [<XSD name>]");
             return 1;
         }
+
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        Encoding Windows1251 = Encoding.GetEncoding(1251);
 
         string XmlFile = args[0];
         Console.WriteLine("XML file:");
